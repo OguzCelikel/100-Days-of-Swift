@@ -74,3 +74,66 @@ var multiArrraySearch = multiArray[0][2] //three
 
 var blacksmiyhShop : [String: Int] = [:]  //key value empty dictionary
 var rentaCar : [String: Int] = [ "Ahmet" : 10, "Mehmet" : 20 ]
+var ahmetPays = rentaCar["Ahmet"] //10
+// all
+let allKeys = [String](rentaCar.key) // becames array list
+let allValues = rentaCar.values // dictionary
+let allValues = [Int](rentaCar.values)
+
+// to update value
+var oldValue = rentaCar.updateValue(30, forKey:"Ahmet")
+
+//nested dictionaries
+
+// Sets stores uniq values
+
+var aktiveQuests: Set <String> = ["Name1", "Name2", "Name3"]
+aktiveQuests.instert("Name4")
+aktiveQuests.remove("Name3")
+print(aktiveQuests) // no name3 added name4
+aktiveQuests.contans("name") //false
+aktiveQuests.sorted() //alphape order
+
+// set operations
+/* 
+		set1.intersection(set2)
+		set1.symmetricDifferent(set2)
+		set1.union(set2) //show all
+*/
+
+// Tuple like arrays
+
+var upperAttack : (String, Int, Bool) = ["Uppercut", 25, true]
+print(upperAttack.0) //uppercut
+var (attack, damage, recharge) = upperAttack
+
+// IF Statement
+
+var currentHealth = 95
+var maxHealth = 100
+
+// < > <= >= != ==
+
+if currentHealth >= maxHealth{
+	print("HP is full")
+}
+else if currentHealth <= 50 {
+	print("Go grab some health")
+}
+else {
+	print("HP is between 50 and 100")
+}
+
+// FOR in Loops
+var stringChar : String = "Omer"
+
+for stringLetter in stringChar{
+  print(stringLetter)
+
+}
+ /*
+O
+m
+e
+r
+ */
