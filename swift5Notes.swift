@@ -137,3 +137,53 @@ m
 e
 r
  */
+
+
+ for i in 1...10{
+   print(i)
+ }
+/*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+*/
+var armorTypes = ["iron","leather","steel"]
+print(armorTypes)
+//["iron", "leather", "steel"]
+for armor in armorTypes[0...]{
+   print(armor)
+ }
+/*
+iron
+leather
+steel
+*/
+
+
+print("\n-------------\n")
+
+// while statement
+
+var playerHealth = 5
+
+while playerHealth > 0 {
+  //print("playerHealth" , playerHealth)
+  print("playerHealth = \(playerHealth)")
+  playerHealth -= 1
+  print("still kicking!!")
+}
+
+playerHealth = 10
+// repeat-while loop
+
+repeat{
+  playerHealth -= 1
+  print("HP at \(playerHealth)")
+}while playerHealth > 0
