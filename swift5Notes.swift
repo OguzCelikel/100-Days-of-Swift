@@ -187,3 +187,58 @@ repeat{
   playerHealth -= 1
   print("HP at \(playerHealth)")
 }while playerHealth > 0
+
+
+
+// switch case
+
+let initial = "H"
+let hp = 26
+let mp = 24
+
+switch initial{
+  case "H":
+  print("I'm guessing Harold?")
+  case "A":
+  print("Alita?")
+  default:
+  print("I've got nothing.")
+}
+
+
+print("\n-------------\n")
+
+// FUNCTION
+
+func firstFunc(){
+  print("Perfect Start")
+}
+
+firstFunc()
+
+//----------------------------------------
+
+func infoFunc() -> String {
+  let name : String = "Omer"
+  let lastName : String = "Celikel"
+  return name + " " + lastName
+}
+var fullName = infoFunc()
+print(fullName)
+
+//----------------------------------------
+
+//----------------------------------------
+
+func sum(firstValue : Int, secondValue : Int ) -> Int {
+  return firstValue + secondValue
+}
+var number1 = 3
+var number2 = 4
+var result = sum(firstValue: number1, secondValue: number2)
+print(result)
+
+// Overloading Funtions
+/*
+when a func writteen nmore than one but takes parameters and changes it.
+*/
