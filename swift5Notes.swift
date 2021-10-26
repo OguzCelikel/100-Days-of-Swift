@@ -242,3 +242,28 @@ print(result)
 /*
 when a func writteen nmore than one but takes parameters and changes it.
 */
+
+//adding 1+2+3+4+5+6....n
+var result2 = 0
+
+for x in 0...11 {
+    result2 += x
+}
+
+print(result2)
+
+//----------------------------------------
+
+func computeBonusDamage(baseDamage: Int) -> Int{
+  print("Base Damage  multiplyed by four")
+  return baseDamage * 4
+}
+
+// Functions as parameters
+func dealDamage(baseDamage: Int, bonusDamage: (Int) -> Int){
+  let bonus = bonusDamage(baseDamage)
+  print("Base Damage= \(baseDamage)\nBonus Damage \(bonus)")
+}
+
+//baseDamage == 55, and to calculate bonusDamage, function calls computeBonusDamage function. It multipleys baseDamage by 4.  And It becomes bonusDamage. WOOOW It's great.
+dealDamage(baseDamage: 55, bonusDamage: computeBonusDamage)
