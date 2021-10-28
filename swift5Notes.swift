@@ -267,3 +267,17 @@ func dealDamage(baseDamage: Int, bonusDamage: (Int) -> Int){
 
 //baseDamage == 55, and to calculate bonusDamage, function calls computeBonusDamage function. It multipleys baseDamage by 4.  And It becomes bonusDamage. WOOOW It's great.
 dealDamage(baseDamage: 55, bonusDamage: computeBonusDamage)
+
+// CLOSURES
+
+typealias attackTuple = (name: String, damage: Int, recharcable: Bool)
+
+var sunStrike = ("Sun Strike", 45, false)
+
+print(sunStrike)
+// print Type Of
+let t = type(of: sunStrike)
+
+print(t)
+
+
