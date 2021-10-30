@@ -280,4 +280,24 @@ let t = type(of: sunStrike)
 
 print(t)
 
+// Optionals 
+var userName : String? 
+userName?.uppercased()
+//userName.uppercased()
+
+userName = "elon"
+// ? used because we dont know name yet.
+
+
+// if there is a error because of string converting use double ?? and it will take 1 as default
+var userNumber = "string"
+var userResult = (Int(userNumber) ?? 1) * 5
+print(userResult)
+
+if let newUserResult = Int(userNumber){
+  newUserResult * 5
+} else {
+  print("Check Again")
+}
+
 
