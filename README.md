@@ -16,4 +16,10 @@ Core Graphics redux | 0 / 1   | 0%
 ## Notes
 - This is 100 days of **Swift**. For 100 days of **SwiftUI**, look [here](https://github.com/clarknt/100-days-of-swiftui). 
 
+## Preview
+
+*Within each project are larger versions of the screenshots.*
+
+Projects / Topics                                                                                                                                                           
+--- 
 [Project 1](01-Project1) - *Storm Viewer* <br/>(with challenges)                                         <br/><sub> View controllers, Storyboard, FileManager  
