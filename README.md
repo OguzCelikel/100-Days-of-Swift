@@ -23,4 +23,6 @@ Core Graphics redux |  1 / 1  | 100%
 
 Projects / Topics                                                                                                                                                            | Screenshots
 ---                                                                                                                                                                          |---
-[Project 1](01-Project1) - *Storm Viewer* <br/>(with challenges)                                         <br/><sub> View controllers, Storyboard, FileManager                               </sub> | ![screen1](01-Project1/screenshots/small/screen01.png) |
+
+
+[Project 1](01-Project1) - *Storm Viewer* <br/>(with challenges)                                         <br/><sub> View controllers, Storyboard, FileManager                               </sub> | ![screen1](01-Project1/screenshots/small/screen01.png) ![screen2](01-Project1/screenshots/small/screen02.png) |

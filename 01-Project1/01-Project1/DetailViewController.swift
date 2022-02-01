@@ -15,8 +15,6 @@ class DetailViewController: UIViewController {
     // challenge 3
     var position: (position: Int, total: Int)?
     
-    var selectedPictureNumber = 0   //x
-    var totalPictures = 0   //y
     
     //print(pictures)
     override func viewDidLoad() {
