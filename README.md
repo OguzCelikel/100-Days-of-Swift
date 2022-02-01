@@ -21,11 +21,7 @@ Core Graphics redux |  1 / 1  | 100%
 
 *Within each project are larger versions of the screenshots.*
 
-Projects / Topics                                                                                                                                                            | Screenshots
----                                                                                                                                                                          |---
-
-
+Projects / Topics                                                           | Screenshots
+---                                                                         |---
 [Project 1](01-Project1) - *Storm Viewer* <br/>(with challenges)                                         <br/><sub> View controllers, Storyboard, FileManager                               </sub> | ![screen1](01-Project1/screenshots/small/screen01.png) ![screen2](01-Project1/screenshots/small/screen02.png) |
-
-[Project 1](01-Project1) - *Storm Viewer* <br/>(with challenges)                                         <br/><sub> View controllers, Storyboard, FileManager                               </sub> | ![screen1](01-Project1/screenshots/small/screen01.png) ![screen2](01-Project1/screenshots/small/screen02.png) |
-[Project 2](02-Project2) - *Guess the Flag* <br/>(with challenges)     
+[Project 2](02-Project2) - *Guess the Flag* <br/>(with challenges)    
