@@ -28,10 +28,14 @@ class DetailViewController: UIViewController {
             imageView.image = UIImage(named: imageToLoad)
         }
         
-        title = selectedImage
-        // title = "Picture X \(selectedPictureNumber) of Y \(totalPictures)"
+        // challenge 3
+        if let position = position {
+            title = "Picture \(position.position) of \(position.total)"
+        }else{
+            print("there is no position")
+        }
+        //title = selectedImage
         navigationItem.largeTitleDisplayMode = .never
-        
         
     }
     
