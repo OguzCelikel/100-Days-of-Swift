@@ -9,7 +9,7 @@ https://www.hackingwithswift.com/100
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
 Projects            |  2 / 30 | 6.6%
-Challenges          |  6 / 90 | 6.6%
+Days                | 21 /100 |  21%
 Milestone Projects  |  0 / 10 |   0%
 Core Graphics redux |  0 / 1  |   0%
 
