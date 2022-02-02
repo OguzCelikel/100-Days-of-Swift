@@ -1,20 +1,20 @@
+# Project 2 - Guess the Flag
 
-# Project 1 - Storm Viewer
+https://www.hackingwithswift.com/100/19
 
-https://www.hackingwithswift.com/100/16
-
-Includes solutions to the [challenges](https://www.hackingwithswift.com/read/1/7/wrap-up).
+Includes solutions to the [challenges](https://www.hackingwithswift.com/read/2/6/wrap-up).
 
 ## Topics
 
-View controllers, Storyboard, FileManager
+UIButton, CALayer, IBAction, UIAlertController
 
 ## Challenges
 
-From [Hacking with Swift](https://www.hackingwithswift.com/read/1/7/wrap-up):
->1. Use Interface Builder to select the text label inside your table view cell and adjust its font size to something larger – experiment and see what looks good.
->2. In your main table view, show the image names in sorted order, so “nssl0033.jpg” comes before “nssl0034.jpg”.
->3. Rather than show image names in the detail title bar, show “Picture X of Y”, where Y is the total number of images and X is the selected picture’s position in the array. Make sure you count from 1 rather than 0.
+From [Hacking with Swift](https://www.hackingwithswift.com/read/2/6/wrap-up):
+>1. Try showing the player’s score in the navigation bar, alongside the flag to guess.
+>2. Keep track of how many questions have been asked, and show one final alert controller after they have answered 10. This should show their final score.
+>3. When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
+
 ## Screenshots
 
 ![screenshot1](screenshots/screen01.png)
