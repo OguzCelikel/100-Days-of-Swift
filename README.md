@@ -8,14 +8,14 @@ https://www.hackingwithswift.com/100
 
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
-Projects            | 30 / 30 | 100%
-Challenges          | 90 / 90 | 100%
-Milestone Projects  | 10 / 10 | 100%
-Core Graphics redux |  1 / 1  | 100%
+Projects            |  2 / 30 | 6.6%
+Challenges          |  6 / 90 | 6.6%
+Milestone Projects  |  0 / 10 |   0%
+Core Graphics redux |  0 / 1  |   0%
 
 ## Notes
 - This is 100 days of **Swift**. For 100 days of **SwiftUI**, look [here](https://github.com/clarknt/100-days-of-swiftui). 
-- 9 remaining hacking with swift projects are available in a [separate repository](https://github.com/clarknt/hacking-with-swift).
+
 
 ## Preview
 
