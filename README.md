@@ -8,8 +8,8 @@ https://www.hackingwithswift.com/100
 
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
-Projects            |  3 / 30 | 6.6%
-Days                | 21 /100 |  21%
+Projects            |  3 / 30 | 9.9%
+Days                | 22 /100 |  22%
 Milestone Projects  |  0 / 10 |   0%
 Core Graphics redux |  0 / 1  |   0%
 
