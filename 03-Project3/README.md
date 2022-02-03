@@ -7,7 +7,7 @@ Includes solutions to the [challenges](https://www.hackingwithswift.com/read/3/3
 
 ## Topics
 
-UIBarButtonItem, UIActivityController
+UIBarButtonItem and UIActivityViewController
 
 ## Challenge
 
