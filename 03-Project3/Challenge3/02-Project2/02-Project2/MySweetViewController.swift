@@ -50,6 +50,10 @@ class MySweetViewController: UIViewController {
         
         askQuestion()
         
+        // project 3 challenge 3
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+
+        
     }
     //Buttons have a setImage() method that lets us control what picture is shown inside and when.
     //The next three use UIImage(named:) and read from an array by position
@@ -99,15 +103,15 @@ class MySweetViewController: UIViewController {
             ac.title = "Done!"
             ac.message = "Final Score :\(score)"
             ac.addAction(UIAlertAction(title: "Close", style: .default, handler: askQuestion))
-            
-
         }
-        
-        
     }
-    
-    
-
+    // project 3 challenge 3
+    @objc func shareTapped() {
+        let items: [Any] = ["Your Score is \(score)"]
+        let vc = UIActivityViewController(activityItems: items, applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
 
 }
 
