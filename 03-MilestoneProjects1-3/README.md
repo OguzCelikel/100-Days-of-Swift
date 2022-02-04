@@ -2,15 +2,6 @@
 
 https://www.hackingwithswift.com/100/23
 
-Flags thanks to https://github.com/emcrisostomo/flags and https://commons.wikimedia.org/
-
-Bonus:
-- custom cells with rounded flags and margins
-- swipe or tap left/right to switch to previous/next flag.
-
-Notes:
-- see [Project 30 - Challenge 2](../40-Project30/Challenge2) for a version of this project with optimized performance
-
 ## Challenge
 
 From [Hacking with Swift](https://www.hackingwithswift.com/guide/2/3/challenge):
