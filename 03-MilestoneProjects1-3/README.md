@@ -32,3 +32,4 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/2/3/challenge):
 
 ![screenshot1](screenshots/screen01.png)
 ![screenshot2](screenshots/screen02.png)
+![screenshot2](screenshots/screen03.png)
