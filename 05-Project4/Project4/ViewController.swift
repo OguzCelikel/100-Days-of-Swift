@@ -14,11 +14,10 @@ when we say class A: B we’re defining a new class called A that builds on the 
  */
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
-    
+    var websites = ["omercelikel.com", "apple.com", "hackingwithswift.com"]
     //create the progress view
     var progressView: UIProgressView!
-    
-    var websites = ["omercelikel.com", "apple.com", "hackingwithswift.com"]
+
     
     override func loadView() {
         webView = WKWebView()
