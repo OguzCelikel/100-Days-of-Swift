@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Project5
+//  07-Project6
 //
-//  Created by Ömer Oğuz Çelikel on 6.02.2022.
+//  Created by Ömer Oğuz Çelikel on 8.07.2022.
 //
 
 import UIKit
