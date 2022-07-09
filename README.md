@@ -8,8 +8,8 @@ https://www.hackingwithswift.com/100
 
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
-Projects            |  4 / 30 | 13.2%
-Days                | 26 /100 |  26%
+Projects            |  5 / 30 | 16.6%
+Days                | 29 /100 |  29%
 Milestone Projects  |  1 / 10 |  10%
 Core Graphics redux |  0 / 1  |   0%
 
@@ -28,4 +28,4 @@ Projects / Topics                                                           | Sc
 [Project 3](03-Project3) - *Social Media* <br/>(with challenges) <br/>(base: project 1)                      <br/><sub> UIBarButtonItem, UIActivityViewController              </sub> | ![screen1](03-Project3/screenshots/small/screen01.png) ![screen1](03-Project3/screenshots/small/screen02.png)                           |
 [Milestone projects 1-3](04-MilestoneProjects1-3) - *Country Flags*                                         <br/><sub>                                                          </sub> | ![screen1](04-MilestoneProjects1-3/screenshots/small/screen01.png) ![screen1](04-MilestoneProjects1-3/screenshots/small/screen02.png)   |
 [Project 4](05-Project4) - *Easy Browser* <br/>(with challenges)                             <br/><sub> WKWebView, Action sheets, UIToolbar, UIProgressView                    </sub> | ![screen1](05-Project4/screenshots/small/screen01.png) ![screen2](05-Project4/screenshots/small/screen02.png)                           |
-[Project 4](06-Project5) - *Word Scramble* <br/>(with challenges)                             <br/><sub> Reading from disk, UIAlertController, IndexPath                       </sub> | ![screen1](06-Project5/screenshots/small/screen01.png) ![screen2](06-Project5/screenshots/small/screen02.png)                           |
+[Project 5](06-Project5) - *Word Scramble* <br/>(with challenges)                             <br/><sub> Reading from disk, UIAlertController, IndexPath                       </sub> | ![screen1](06-Project5/screenshots/small/screen01.png) ![screen2](06-Project5/screenshots/small/screen02.png)                           |
