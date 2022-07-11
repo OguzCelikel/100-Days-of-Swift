@@ -16,16 +16,22 @@ class shoppingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "🛒 Shopping List"
+        
         // Dark theme
         overrideUserInterfaceStyle = .dark
-
-        title = "🛒 Shopping List"
+        
         tableView.reloadData()
         self.navigationController!.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewUIBarButtonItem))
+        
+        //self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.red]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllUIBarButtonItem))
+        navigationItem.leftBarButtonItem?.tintColor = .red
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,10 +49,30 @@ class shoppingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Product", for: indexPath)
-        
+        view.translatesAutoresizingMaskIntoConstraints = false
         cell.textLabel?.text = shoppingList[indexPath.row]
         
         return cell
+    }
+    @objc func deleteAllUIBarButtonItem(){
+        
+        let deleteAlert = UIAlertController(title: "❗️The entire list will be deleted.", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        deleteAlert.addAction(UIAlertAction(title: "Yes, I'm sure", style: .default, handler: { (action: UIAlertAction!) in
+            print(self.shoppingList)
+            print("delete button tapped")
+            self.shoppingList.removeAll()
+            print(self.shoppingList)
+            self.tableView.reloadData()
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Nooo wait!", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(deleteAlert, animated: true, completion: nil)
+        
+        
     }
     
     @objc func addNewUIBarButtonItem(){
@@ -82,7 +108,11 @@ class shoppingListTableViewController: UITableViewController {
     }
     
     func isEmptyAnswer(word: String) -> Bool {
-        return !shoppingList.contains(word)
+        if word.count < 1 {
+            return false
+        } else {
+            return true
+        }
     }
     
     func showErrorMessage(title: String, message: String) {

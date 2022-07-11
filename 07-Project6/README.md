@@ -1,19 +1,15 @@
-# Project 2 - Guess the Flag
+# Project 6 - Auto Layout
 
-https://www.hackingwithswift.com/100/19
+https://www.hackingwithswift.com/100/30
 
-Includes solutions to the [challenges](https://www.hackingwithswift.com/read/2/6/wrap-up).
+Includes solutions to the [challenges](https://www.hackingwithswift.com/read/6/6/wrap-up).
+
+This project is divided in [Project 6a](Project6a/) and [Project 6b](Project6b/).
 
 ## Topics
 
-UIButton, CALayer, IBAction, UIAlertController
+Auto Layout, Constraints, Visual Format Language
 
-## Challenges
-
-From [Hacking with Swift](https://www.hackingwithswift.com/read/2/6/wrap-up):
->1. Try showing the player’s score in the navigation bar, alongside the flag to guess.
->2. Keep track of how many questions have been asked, and show one final alert controller after they have answered 10. This should show their final score.
->3. When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
 
 ## Screenshots
 
