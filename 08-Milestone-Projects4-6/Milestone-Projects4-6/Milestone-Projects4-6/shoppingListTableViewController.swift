@@ -9,27 +9,33 @@ import UIKit
 
 class shoppingListTableViewController: UITableViewController {
     
+    
     // user's shopping list array
     var shoppingList = [String]()
     //var shoppingList = ["apple", "banana", "tomato", "RedBull"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Dark theme
+        overrideUserInterfaceStyle = .dark
+
         title = "🛒 Shopping List"
         tableView.reloadData()
+        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewUIBarButtonItem))
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return shoppingList.count
@@ -37,12 +43,12 @@ class shoppingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Product", for: indexPath)
-
+        
         cell.textLabel?.text = shoppingList[indexPath.row]
-
+        
         return cell
     }
-
+    
     @objc func addNewUIBarButtonItem(){
         let ac = UIAlertController(title: "Enter a new product", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -52,6 +58,7 @@ class shoppingListTableViewController: UITableViewController {
             guard let answer = ac?.textFields?[0].text else { return }
             self?.submit(answer)
         }
+        
         ac.addAction(submitAction)
         present(ac, animated: true)
     }
@@ -59,15 +66,29 @@ class shoppingListTableViewController: UITableViewController {
     func submit(_ answer: String) {
         let lowerAnswer = answer.lowercased()
         
-        if isEmptyAnswer(word: lowerAnswer) {
-            
-            
+        // empty word
+        if !isEmptyAnswer(word: lowerAnswer) {
+            showErrorMessage(title: "Did you tab the button by mistake?", message: "Please check again :)")
+            return
         }
+        
+        // valid word
+        shoppingList.insert(lowerAnswer, at: 0)
+        
+        // could have just called tableView.reloadData() but then the insertion wouldn't have been animated
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
         
     }
     
     func isEmptyAnswer(word: String) -> Bool {
         return !shoppingList.contains(word)
     }
-
+    
+    func showErrorMessage(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
 }
