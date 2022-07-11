@@ -54,6 +54,14 @@ class shoppingListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.selectedProduct = shoppingList[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @objc func deleteAllUIBarButtonItem(){
         
         let deleteAlert = UIAlertController(title: "❗️The entire list will be deleted.", message: nil, preferredStyle: UIAlertController.Style.alert)

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,6 +46,80 @@
             </objects>
             <point key="canvasLocation" x="827.536231884058" y="-42.1875"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="kxg-Bt-bf1">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="a4b-o9-irP" customClass="DetailViewController" customModule="Milestone_Projects4_6" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MaQ-Dy-7de">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-Pi-TEK">
+                                <rect key="frame" x="117" y="164" width="180" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="HRj-Ok-BPJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axC-0C-8hB">
+                                <rect key="frame" x="73" y="268" width="269" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="rGR-PI-Ec9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgP-r9-zzC">
+                                <rect key="frame" x="259" y="327" width="83" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Chv-mb-e9P"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Enter">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="enterButton:" destination="a4b-o9-irP" eventType="touchUpInside" id="KCv-Eh-WGb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eee-uI-TiL">
+                                <rect key="frame" x="73" y="377" width="269" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MPy-DH-rEQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="fFX-Pi-TEK" firstAttribute="centerX" secondItem="MaQ-Dy-7de" secondAttribute="centerX" id="0yg-iu-JOB"/>
+                            <constraint firstItem="Eee-uI-TiL" firstAttribute="top" secondItem="IgP-r9-zzC" secondAttribute="bottom" constant="20" id="7sQ-td-vwP"/>
+                            <constraint firstItem="fFX-Pi-TEK" firstAttribute="leading" secondItem="MPy-DH-rEQ" secondAttribute="leading" constant="117" id="HIt-HB-S3G"/>
+                            <constraint firstItem="IgP-r9-zzC" firstAttribute="leading" secondItem="MPy-DH-rEQ" secondAttribute="leading" constant="259" id="Lm0-Vl-Z8o"/>
+                            <constraint firstItem="MPy-DH-rEQ" firstAttribute="bottom" secondItem="Eee-uI-TiL" secondAttribute="bottom" constant="418" id="N1t-iy-Zvv"/>
+                            <constraint firstItem="IgP-r9-zzC" firstAttribute="top" secondItem="axC-0C-8hB" secondAttribute="bottom" constant="25" id="bu6-BA-jI8"/>
+                            <constraint firstItem="axC-0C-8hB" firstAttribute="trailing" secondItem="IgP-r9-zzC" secondAttribute="trailing" id="hO6-7o-FHH"/>
+                            <constraint firstItem="axC-0C-8hB" firstAttribute="top" secondItem="fFX-Pi-TEK" secondAttribute="bottom" constant="38" id="hyW-3w-ASu"/>
+                            <constraint firstItem="fFX-Pi-TEK" firstAttribute="top" secondItem="MPy-DH-rEQ" secondAttribute="top" constant="120" id="kgq-Wz-HhL"/>
+                            <constraint firstItem="axC-0C-8hB" firstAttribute="leading" secondItem="Eee-uI-TiL" secondAttribute="leading" id="oVU-Cv-e8X"/>
+                            <constraint firstItem="IgP-r9-zzC" firstAttribute="trailing" secondItem="Eee-uI-TiL" secondAttribute="trailing" id="oun-Mo-Lao"/>
+                            <constraint firstItem="fFX-Pi-TEK" firstAttribute="centerX" secondItem="axC-0C-8hB" secondAttribute="centerX" id="ql0-eq-6i3"/>
+                            <constraint firstItem="axC-0C-8hB" firstAttribute="leading" secondItem="MPy-DH-rEQ" secondAttribute="leading" constant="73" id="zfA-aW-CuK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="fFX-Pi-TEK" id="Y67-uo-O7B"/>
+                        <outlet property="detailTextField" destination="axC-0C-8hB" id="Jwd-Hg-ibK"/>
+                        <outlet property="userAnswerUILabel" destination="Eee-uI-TiL" id="Qax-F4-kzR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68A-AE-3j4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686.9565217391305" y="-42.1875"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="eBy-F9-GVV">
             <objects>
@@ -67,6 +142,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
