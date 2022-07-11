@@ -8,9 +8,9 @@ https://www.hackingwithswift.com/100
 
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
-Projects            |  5 / 30 | 16.6%
+Projects            |  6 / 30 |  20%
 Days                | 29 /100 |  29%
-Milestone Projects  |  1 / 10 |  10%
+Milestone Projects  |  2 / 10 |  20%
 Core Graphics redux |  0 / 1  |   0%
 
 ## Notes
@@ -29,3 +29,5 @@ Projects / Topics                                                           | Sc
 [Milestone projects 1-3](04-MilestoneProjects1-3) - *Country Flags*                                         <br/><sub>                                                          </sub> | ![screen1](04-MilestoneProjects1-3/screenshots/small/screen01.png) ![screen1](04-MilestoneProjects1-3/screenshots/small/screen02.png)   |
 [Project 4](05-Project4) - *Easy Browser* <br/>(with challenges)                             <br/><sub> WKWebView, Action sheets, UIToolbar, UIProgressView                    </sub> | ![screen1](05-Project4/screenshots/small/screen01.png) ![screen2](05-Project4/screenshots/small/screen02.png)                           |
 [Project 5](06-Project5) - *Word Scramble* <br/>(with challenges)                             <br/><sub> Reading from disk, UIAlertController, IndexPath                       </sub> | ![screen1](06-Project5/screenshots/small/screen01.png) ![screen2](06-Project5/screenshots/small/screen02.png)                           |
+[Project 6](07-Project6) - *Auto Layout* <br/>(with challenges)                               <br/><sub> Auto Layout, Constraints, Visual Format Language                      </sub> | ![screen1](07-Project6/screenshots/small/screen01.png) ![screen2](07-Project6/screenshots/small/screen02.png)                           |
+[Milestone projects 4-6](08-Milestone-Projects4-6) - *Shopping List*                            <br/><sub>                                                                     </sub> | ![screen1](08-Milestone-Projects4-6/screenshots/small/screen02.png) ![screen2](08-Milestone-Projects4-6/screenshots/small/screen03.png)  |
