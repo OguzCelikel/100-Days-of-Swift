@@ -12,8 +12,18 @@ class MyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "🗽Whitehouse Petitions"
+        
+        // Dark theme
         overrideUserInterfaceStyle = .dark
-
+        
+        tableView.reloadData()
+        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        
+        
         let urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
         
         if let url = URL(string: urlString) {
@@ -33,14 +43,14 @@ class MyTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return petitions.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
