@@ -128,6 +128,10 @@ class ViewController: UIViewController {
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
                 
+                // MARK: - Challange 1
+                letterButton.layer.borderWidth = 0.8
+                letterButton.layer.borderColor = UIColor.gray.cgColor
+                
                 buttonsView.addSubview(letterButton)
                 letterButtons.append(letterButton)
             }
@@ -150,7 +154,8 @@ class ViewController: UIViewController {
         activatedButtons.append(sender)
         sender.isHidden = true
     }
-    
+    // MARK: - Challange 3
+    var countRightAnswerCount = 0
     @objc func submitTapped(_ sender: UIButton) {
         guard let answerText = currentAnswer.text else { return }
         
@@ -159,18 +164,30 @@ class ViewController: UIViewController {
             
             var splitAnswers = answerLabel.text?.components(separatedBy: "\n")
             splitAnswers?[solutionPosition] = answerText
+            
             answerLabel.text = splitAnswers?.joined(separator: "\n")
             
             currentAnswer.text = ""
             score += 1
+            // MARK: - Challange 3
+            countRightAnswerCount += 1
             
             //scoreLabel.text = "Score: \(score)"
-            
-            if score % 7 == 0 {
+            // MARK: - Challange 3
+            if countRightAnswerCount == 7 {
                 let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
+                countRightAnswerCount = 0
             }
+            // MARK: - Challange 2
+        } else {
+            print("wrong answer")
+            let wrongAnswerAc = UIAlertController(title: "Wrong Answer!", message: "Try Again", preferredStyle: .alert)
+            wrongAnswerAc.addAction(UIAlertAction(title: "OK", style: .default))
+            present(wrongAnswerAc, animated: true)
+            
+            score -= 1
         }
     }
     
@@ -184,11 +201,13 @@ class ViewController: UIViewController {
             button.isHidden = false
         }
     }
+    
     @objc func clearTapped(_ sender: UIButton) {
         currentAnswer.text = ""
         
         for button in activatedButtons {
             button.isHidden = false
+            
         }
         
         activatedButtons.removeAll()
