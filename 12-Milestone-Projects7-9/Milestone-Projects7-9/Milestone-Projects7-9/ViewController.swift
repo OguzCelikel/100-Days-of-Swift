@@ -9,9 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var answerText = "_ _ _ _ _ _ _ _"
     var allWords = [String]()
     var usedLetters = [String]()
     var answerUILabel: UILabel!
+    var currentAnswer: UITextField!
     var wrongAnswers = [Int]()
     var scoreLabel: UILabel!
     let alphabetArray =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
         answerUILabel.translatesAutoresizingMaskIntoConstraints = false
         answerUILabel.font = UIFont.systemFont(ofSize: 34)
         answerUILabel.textAlignment = .center
-        answerUILabel.text = " _ _ _ _ _ _ _ _ "
+        answerUILabel.text = answerText
         answerUILabel.font = UIFont(name: "MarkerFelt-Thin", size: 40)
         //text.font = UIFont(name: "MarkerFelt-Thin", size: 30)
         view.addSubview(answerUILabel)
@@ -116,8 +118,14 @@ class ViewController: UIViewController {
         //buttonsView.backgroundColor = .brown
     } // loadview
     
-    @objc func letterTapped() {
-        print("asd")
+    @objc func letterTapped(_ sender: UIButton) {
+        
+        guard let buttonTitle = sender.titleLabel?.text else { return }
+        print("harf Tiklandi, HARF = ", buttonTitle)
+        //answerUILabel.text = " _ A _ _ _ _ _ _ "
+        //currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+        
+        sender.isHidden = true
     }
     
     
