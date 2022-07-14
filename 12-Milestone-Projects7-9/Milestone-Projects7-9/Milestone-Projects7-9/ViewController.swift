@@ -8,7 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    var correctLetters = [String]()
+    var selectedWord = ""
     var answerText = "_ _ _ _ _ _ _ _"
     var allWords = [String]()
     var usedLetters = [String]()
@@ -122,10 +123,41 @@ class ViewController: UIViewController {
         
         guard let buttonTitle = sender.titleLabel?.text else { return }
         print("harf Tiklandi, HARF = ", buttonTitle)
+        
+        // compare without accents for languages with accentuated letters
+        if currentWord.folding(options: .diacriticInsensitive, locale: .current).contains(letter!) {
+            correctLetters.append(letter!)
+            
+            correctAnswer(buttonTitle, sender)
+        }
+        else {
+            manageIncorrectGuess()
+        }
+        
+        
+        
         //answerUILabel.text = " _ A _ _ _ _ _ _ "
         //currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
-        
-        sender.isHidden = true
+    }
+    func correctAnswer(_ buttonTitle: String, _ sender: UIButton) {
+        answerText = ""
+        var letterIndexCount = 0
+        var letterHasFound2 = false
+        for letter in selectedWord {
+            letterIndexCount += 1
+            //print("letter in selectedWord", letter)
+            if buttonTitle.contains(letter) {
+                //print("letter in word index:", letterIndexCount)
+                letterHasFound2 = true
+                sender.isHidden = true
+                answerText += "\(buttonTitle) "
+                print("answerText: ", buttonTitle)
+            } else {
+                answerText += "_"
+                sender.setTitleColor(UIColor.red, for: .normal)
+            }
+        }
+        answerUILabel.text = answerText.trimmingCharacters(in: .whitespaces)
     }
     
     
@@ -137,8 +169,9 @@ class ViewController: UIViewController {
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 allWords = startWords.components(separatedBy: "\n")
-                let selectedWord = allWords.randomElement()
-                print("selectedWord", selectedWord! as Any)
+                selectedWord = allWords.randomElement()!
+                selectedWord = selectedWord.uppercased()
+                print("selectedWord", selectedWord)
                 usedLetters.removeAll(keepingCapacity: true)
             }
         }
