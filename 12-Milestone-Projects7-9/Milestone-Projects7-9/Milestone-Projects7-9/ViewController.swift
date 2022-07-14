@@ -120,27 +120,10 @@ class ViewController: UIViewController {
     } // loadview
     
     @objc func letterTapped(_ sender: UIButton) {
-        
+        answerText = ""
         guard let buttonTitle = sender.titleLabel?.text else { return }
         print("harf Tiklandi, HARF = ", buttonTitle)
         
-        // compare without accents for languages with accentuated letters
-        if currentWord.folding(options: .diacriticInsensitive, locale: .current).contains(letter!) {
-            correctLetters.append(letter!)
-            
-            correctAnswer(buttonTitle, sender)
-        }
-        else {
-            manageIncorrectGuess()
-        }
-        
-        
-        
-        //answerUILabel.text = " _ A _ _ _ _ _ _ "
-        //currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
-    }
-    func correctAnswer(_ buttonTitle: String, _ sender: UIButton) {
-        answerText = ""
         var letterIndexCount = 0
         var letterHasFound2 = false
         for letter in selectedWord {
@@ -158,6 +141,14 @@ class ViewController: UIViewController {
             }
         }
         answerUILabel.text = answerText.trimmingCharacters(in: .whitespaces)
+        
+        //answerUILabel.text = " _ A _ _ _ _ _ _ "
+        //currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+    }
+    func correctAnswer(_ buttonTitle: String, _ sender: UIButton) {
+        
+        
+        
     }
     
     
