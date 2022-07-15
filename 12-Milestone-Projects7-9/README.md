@@ -61,5 +61,5 @@ From [Hacking with Swift](https://www.hackingwithswift.com/guide/4/3/challenge):
 >```
 
 ## Screenshots
-
-![screenshot1](screenshots/screen01.mov)
+![Alt Text](screenshots/screen01.gif)
+<img src="intro.gif" width="800" height="500"/>
