@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var imageView: UIImageView!
+    var level = 1
     var correctLetters = [String]()
     var selectedWord = ""
-    var answerText = "_ _ _ _ _ _ _ _"
+    var answerText = "________"
     var allWords = [String]()
+    var printAnswer = [String]()
     var usedLetters = [String]()
     var answerUILabel: UILabel!
     var currentAnswer: UITextField!
@@ -20,13 +23,7 @@ class ViewController: UIViewController {
     let alphabetArray =  ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
     var letterButtons = [UIButton]()
     
-    var score = 0 {
-        // when score is changed
-        didSet {
-            //scoreLabel.text = "Score: \(score)"
-        }
-    }
-    
+    var score = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +40,16 @@ class ViewController: UIViewController {
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsView)
         
+        imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+        
         answerUILabel = UILabel()
         answerUILabel.translatesAutoresizingMaskIntoConstraints = false
         answerUILabel.font = UIFont.systemFont(ofSize: 34)
         answerUILabel.textAlignment = .center
         answerUILabel.text = answerText
         answerUILabel.font = UIFont(name: "MarkerFelt-Thin", size: 40)
-        //text.font = UIFont(name: "MarkerFelt-Thin", size: 30)
         view.addSubview(answerUILabel)
         
         scoreLabel = UILabel()
@@ -60,20 +60,30 @@ class ViewController: UIViewController {
         view.addSubview(scoreLabel)
         
         NSLayoutConstraint.activate([
+            
+            
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             scoreLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
             
+            
+            imageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 70),
+            imageView.widthAnchor.constraint(equalToConstant: 300),
+            imageView.heightAnchor.constraint(equalToConstant: 300),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            //answerUILabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 20),
+            //answerUILabel.bottomAnchor.constraint(equalTo:  buttonsView.bottomAnchor, constant: 20),
             answerUILabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             answerUILabel.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor),
             answerUILabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7),
+            answerUILabel.heightAnchor.constraint(equalToConstant: 44),
             
             buttonsView.topAnchor.constraint(equalTo: answerUILabel.bottomAnchor, constant: 50),
-            //buttonsView.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            //buttonsView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor)
             buttonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             buttonsView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
             buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 0)
         ])
+        
         let width = 50
         let height = 80
         var forAllWordsEvenOdd = 2
@@ -114,49 +124,93 @@ class ViewController: UIViewController {
             }
             forAllWordsEvenOdd += 1
         }// row for
-        
-        //answerUILabel.backgroundColor = .gray
+        //imageView.backgroundColor = .gray
+        //answerUILabel.backgroundColor = .blue
         //buttonsView.backgroundColor = .brown
     } // loadview
     
+    var countRightAnswerCount = 0
+    var countWrongAnswerCount = 0
     @objc func letterTapped(_ sender: UIButton) {
-        answerText = ""
-        guard let buttonTitle = sender.titleLabel?.text else { return }
-        print("harf Tiklandi, HARF = ", buttonTitle)
         
+        guard let buttonTitle = sender.titleLabel?.text else { return }
         var letterIndexCount = 0
-        var letterHasFound2 = false
+        var isAnswerFalse = true
         for letter in selectedWord {
             letterIndexCount += 1
-            //print("letter in selectedWord", letter)
             if buttonTitle.contains(letter) {
-                //print("letter in word index:", letterIndexCount)
-                letterHasFound2 = true
+                isAnswerFalse = false
+                countRightAnswerCount += 1
                 sender.isHidden = true
-                answerText += "\(buttonTitle) "
-                print("answerText: ", buttonTitle)
+                let charButtonTitle = Character(buttonTitle)
+                answerText = replace(myString: answerText, letterIndexCount-1, charButtonTitle)
+                if countRightAnswerCount == 8 {
+                    let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+                    present(ac, animated: true)
+                    countRightAnswerCount = 0
+                    score += 1
+                    level += 1
+                }
             } else {
-                answerText += "_"
+                //isAnswerFalse = true
+                //countWrongAnswerCount += 1
                 sender.setTitleColor(UIColor.red, for: .normal)
             }
         }
         answerUILabel.text = answerText.trimmingCharacters(in: .whitespaces)
+        if isAnswerFalse{
+            wrongAnswerFunc()
+            
+        }
         
-        //answerUILabel.text = " _ A _ _ _ _ _ _ "
-        //currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
     }
-    func correctAnswer(_ buttonTitle: String, _ sender: UIButton) {
+    func wrongAnswerFunc() {
+        
+        print("WrongAnswer")
+        countWrongAnswerCount += 1
+        print("countWrongAnswerCount:",countWrongAnswerCount)
+        print ("hangman\(countWrongAnswerCount)")
+        imageView.image = UIImage(named: "hangman\(countWrongAnswerCount)")
+        if countWrongAnswerCount == 7 {
+            score -= 1
+
+            let ac = UIAlertController(title: "Sorry!", message: "Word to find was:\n\(selectedWord)", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: levelUp))
+            present(ac, animated: true)
+            countWrongAnswerCount = 0
+            
+            scoreLabel.text = "WIN: \(score)"
+        }
+    }
+    func levelUp(action: UIAlertAction) {
+        countWrongAnswerCount = 0
+        countRightAnswerCount = 0
+        print("leevedUPed")
+        
+        scoreLabel.text = "WIN: \(score)"
+        
+        answerText = "--------"
+        imageView.image = UIImage(named: "hangman\(countWrongAnswerCount)")
+        answerUILabel.text = answerText.trimmingCharacters(in: .whitespaces)
         
         
-        
+        for button in letterButtons {
+            button.isHidden = false
+            button.setTitleColor(UIColor.black, for: .normal)
+        }
+        loadLevel()
     }
     
+    func replace(myString: String, _ index: Int, _ newChar: Character) -> String {
+        var chars = Array(myString)     // gets an array of characters
+        chars[index] = newChar
+        let modifiedString = String(chars)
+        return modifiedString
+    }
     
     func loadLevel() {
-        //var solutionsString = ""
-        //var letterBits = [String]()
-        //var selectedWord = [String]()
-        
+        imageView.image = UIImage(named: "hangman\(countWrongAnswerCount)")
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 allWords = startWords.components(separatedBy: "\n")
