@@ -36,7 +36,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         cell.imageView.layer.borderWidth = 2
         cell.imageView.layer.cornerRadius = 3
         cell.layer.cornerRadius = 7
-        
+        print("person.name2: ", person.name)
+        print("person.image2: ", person.image)
         return cell
     }
     
@@ -72,15 +73,40 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
+        // MARK: - Challange 1
+        let deleteUserAlert = UIAlertController(title: "Rename or Delete", message: "", preferredStyle: .alert)
         let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
-            guard let newName = ac?.textFields?[0].text else { return }
-            person.name = newName
-            self?.collectionView.reloadData()
-        })
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        deleteUserAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
+            print("Delete")
+            self.deleteUser(indexPath: indexPath.item)
+            
+        }))
+
+        deleteUserAlert.addAction(UIAlertAction(title: "Rename", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+            print("Rename")
+            //let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
+            ac.addTextField()
+            ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
+                guard let newName = ac?.textFields?[0].text else { return }
+                person.name = newName
+                self?.collectionView.reloadData()
+            })
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(ac, animated: true)
+        }))
+
+        present(deleteUserAlert, animated: true, completion: nil)
+        //present(ac, animated: true)
+        
+        
+    }
+    // MARK: - Challange 1
+    func deleteUser(indexPath: Int) {
+        print("deleteUser func is running...")
+        print("user \(indexPath) will delete")
+        people.remove(at: indexPath)
+        self.collectionView.reloadData()
     }
 }
 
