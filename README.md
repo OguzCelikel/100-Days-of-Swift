@@ -8,13 +8,13 @@ https://www.hackingwithswift.com/100
 
 Type                | Number  | Completion
 :---                |  :---:  |   :---:
-Projects            |  9 / 30 |  30%
-Days                | 40 /100 |  40%
-Milestone Projects  |  2 / 10 |  20%
+Projects            | 10 / 30 |  33.3%
+Days                | 44 /100 |  44%
+Milestone Projects  |  3 / 10 |  30%
 Core Graphics redux |  0 / 1  |   0%
 
 ## Notes
-- This is 100 days of **Swift**. For 100 days of **SwiftUI**, look [here](https://github.com/clarknt/100-days-of-swiftui). 
+
 
 
 ## Preview
@@ -35,3 +35,4 @@ Projects / Topics                                                           | Sc
 [Project 8](10-Project8) - *7 Swifty Words* <br/>(with challenges)                 <br/><sub> UI in code, Text alignment, Layout Margins, UIFont                  </sub> | ![screen1](10-Project8/screenshots/small/screen01.png) ![screen2](10-Project8/screenshots/small/screen02.png) |
 [Project 9](11-Project9) - *Grand Central Dispatch* <br/>(with challenges) <br/>(base: project 7)   <br/><sub> Grand Central Dispatch, PerformSelector                         </sub> | ![screen1](11-Project9/screenshots/small/screen01.png) ![screen2](11-Project9/screenshots/small/screen02.png) |
 [Milestone projects 7-9](12-Milestone-Projects7-9) - *Hangman*                                <br/><sub>                                                                       </sub> | ![screen1](12-Milestone-Projects7-9/screenshots/screen01.gif)  |
+[Project 10](13-Project10) - *Names to faces* <br/>(with challenges)                              <br/><sub> UICollectionView, UIImagePickerController, NSObject               </sub> | ![screen1](13-Project10/screenshots/small/screen01.png) ![screen2](13-Project10/screenshots/small/screen02.png) |
