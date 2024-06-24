@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    let students = ["Harry", "Hermione", "Ron"]
-    @State private var selectedStudent = "Harry"
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    
+    let tipPercentages = [10, 15, 20, 25, 0]
+
 
     var body: some View {
-        NavigationStack {
-            Form {
-                Picker("Select your student", selection: $selectedStudent) {
-                    ForEach(students, id: \.self) {
-                        // SwiftUI needs to be able to identify every view on the screen uniquely, so it can detect when things change.
-                        // if we rearranged our array so that Ron came first, SwiftUI would move its text view at the same time.
-                        Text($0)
-                    }
-                }
+        Form {
+            Section {
+                //TextField("Amount", value: $checkAmount, format: .currency(code: "USD"))
+                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    .keyboardType(.decimalPad)
+            }
+            
+            Section {
+                Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
             }
         }
     }
