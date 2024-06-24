@@ -8,31 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var tapCount = 0
-    @State private var name = ""
-    
+    let students = ["Harry", "Hermione", "Ron"]
+    @State private var selectedStudent = "Harry"
+
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Enter your name", text: $name) //read and write
-                Text("Hello, world!")
-                Text(name) // just read
-                
-                // both are same
-                ForEach(0..<20) { number in
-                    Text("Row \(number)")
-                }
-                
-                ForEach(0..<20) {
-                    Text("Row \($0)")
+                Picker("Select your student", selection: $selectedStudent) {
+                    ForEach(students, id: \.self) {
+                        // SwiftUI needs to be able to identify every view on the screen uniquely, so it can detect when things change.
+                        // if we rearranged our array so that Ron came first, SwiftUI would move its text view at the same time.
+                        Text($0)
+                    }
                 }
             }
-            Spacer()
-            Button("Tap Count: \(tapCount)") {
-                tapCount += 1
-            }.padding()
-                .navigationTitle("Test")
-                .navigationBarTitleDisplayMode(.large)
         }
     }
 }
