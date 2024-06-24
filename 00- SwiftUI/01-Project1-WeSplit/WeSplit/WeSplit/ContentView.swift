@@ -9,21 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var checkAmount = 0.0
-    @State private var numberOfPeople = 0
+    @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
     let tipPercentages = [10, 15, 20, 25, 0]
-
-
+    
+    var totalPerPerson: Double {
+        // numberOfPeople zaten en az 2 olacak şekilde ayarlandığından direkt kullanılabilir.
+        let peopleCount = Double(numberOfPeople)
+        let tipSelection = Double(tipPercentage)
+        
+        // Bahşiş tutarını hesapla.
+        let tipValue = checkAmount / 100 * tipSelection
+        // Bahşiş eklenmiş toplam tutarı hesapla.
+        let grandTotal = checkAmount + tipValue
+        // Kişi başına düşen miktarı hesapla.
+        let amountPerPerson = grandTotal / peopleCount
+        
+        // Kişi başına düşen tutarı geri döndür.
+        return amountPerPerson
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
-
+                    
                     Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach(2...20, id: \.self) {
+                        ForEach(0..<20) {
                             Text("\($0) people")
                         }
                     }
@@ -39,8 +54,8 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                 }
                 
-                Section {
-                    Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                Section("Total Amount") {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             } // Form
             .navigationTitle("WeSplit")
