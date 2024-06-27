@@ -37,7 +37,7 @@ struct ContentView: View {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
-//                        .focused($amountIsFocused)
+                        .focused($amountIsFocused)
                     
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(0..<20) {
@@ -47,16 +47,30 @@ struct ContentView: View {
                     //.pickerStyle(.navigationLink)
                 }
                 
+                //                Section("How much do you want to tip?") {
+                //                    Picker("Tip percentage", selection: $tipPercentage) {
+                //                        ForEach(tipPercentages, id: \.self) {
+                //                            Text($0, format: .percent)
+                //                        }
+                //                    }
+                //                    .pickerStyle(.segmented)
+                //                }
+                
                 Section("How much do you want to tip?") {
-                    Picker("Tip percentage", selection: $tipPercentage) {
-                        ForEach(tipPercentages, id: \.self) {
-                            Text($0, format: .percent)
+                    NavigationLink(destination: TipSelectionView(tipPercentage: $tipPercentage)) {
+                        HStack {
+                            Text("Tip percentage")
+                            Spacer()
+                            Text("\(tipPercentage)%")
+                                .foregroundColor(.gray)
                         }
                     }
-                    .pickerStyle(.segmented)
                 }
                 
-                Section("Total Amount") {
+                Section("Total amount of the check") {
+                    Text((totalPerPerson * Double(numberOfPeople)), format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                }
+                Section("Amount per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             } // Form
@@ -70,10 +84,6 @@ struct ContentView: View {
                     }
                 }
             }
-            
-//            .onTapGesture {
-//                amountIsFocused = false
-//            }
         }
     }
 }
